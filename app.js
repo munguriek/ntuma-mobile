@@ -40,6 +40,13 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     console.log(err);
 });
 
-app.listen(3000, ()=>{
-    console.log("Server is now running http://localhost:3000");
-});
+//Development Server
+// app.listen(3000, ()=>{
+//     console.log("Server is now running http://localhost:3000");
+// });
+
+//Production Environment
+const server = app.listen(process.env.PORT || 3000, function(){
+    const port = server.address().port
+    console.log("Server is running on port " + port);
+})
