@@ -22,7 +22,7 @@ const assistantSchema = new mongoose.Schema({
         required: true,
     },
     
-    isAdmin: {
+    isAssistant: {
         type: Boolean,
         default: false,
     },

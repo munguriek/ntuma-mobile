@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },    
-    isAdmin: {
+    isAssistant: {
         type: Boolean,
         default: false,
     }

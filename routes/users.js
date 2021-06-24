@@ -29,7 +29,7 @@ router.post('/', async (req,res)=>{
         email: req.body.email,
         passwordHash: bcrypt.hashSync(req.body.password, 10),
         phone: req.body.phone,
-        isAdmin: req.body.isAdmin,
+        isAssistant: req.body.isAssistant,
         refferalCode: req.body.refferalCode
     })
     user = await user.save();
@@ -59,7 +59,7 @@ router.put('/:id',async (req, res)=> {
             phone: req.body.phone,
             refferalCode: req.body.refferalCode,
             passwordHash: newPassword,    
-            isAdmin: req.body.isAdmin,
+            isAssistant: req.body.isAssistant,
         },
         { new: true}
     )
@@ -81,7 +81,7 @@ router.post('/login', async (req,res) => {
         const token = jwt.sign(
             {
                 userId: user.id,
-                isAdmin: user.isAdmin
+                isAssistant: user.isAssistant
             },
             secret,
             {expiresIn : '1d'}
@@ -104,7 +104,7 @@ router.post('/register', async (req,res)=>{
         phone: req.body.phone,
         refferalCode: req.body.refferalCode,
         passwordHash: bcrypt.hashSync(req.body.password, 10),    
-        isAdmin: req.body.isAdmin,
+        isAssistant: req.body.isAssistant,
     })
     user = await user.save();
 

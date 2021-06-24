@@ -50,7 +50,7 @@ router.post('/', async (req,res)=>{
     let order = new Order({
         orderItems: orderItemsIdsResolved,
         homeAddress: req.body.homeAddress,
-        currentAddress: req.body.currentAddress,
+        orderNotes: req.body.orderNotes,
         phone: req.body.phone,
         status: req.body.status,
         totalPrice: totalPrice,
