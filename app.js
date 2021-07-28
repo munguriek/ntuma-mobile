@@ -13,7 +13,7 @@ app.options('*', cors());
 //Middleware
 app.use(express.json());
 app.use(morgan('tiny'));
-app.use(authJWT());
+// app.use(authJWT());
 app.use(errorHandler);
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 
@@ -23,12 +23,18 @@ const productsRoute = require('./routes/product');
 const categoriesRoute = require('./routes/categories');
 const orderRoute = require('./routes/orders');
 const userRoute = require('./routes/users');
+const assistantRoute = require('./routes/assistants');
+const marketRoute = require('./routes/markets');
+const shopRoute = require('./routes/shop');
 
 //Routes
 app.use(`${api}/products`, productsRoute);
 app.use(`${api}/categories`, categoriesRoute);
 app.use(`${api}/users`, userRoute);
+app.use(`${api}/assistants`, assistantRoute);
 app.use(`${api}/orders`, orderRoute);
+app.use(`${api}/markets`, marketRoute);
+app.use(`${api}/shop`, shopRoute);
 
 mongoose.connect(process.env.CONNECTION_STRING, { 
     useNewUrlParser: true,

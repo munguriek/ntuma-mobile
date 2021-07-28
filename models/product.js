@@ -24,6 +24,15 @@ const productSchema = mongoose.Schema({
         type: Number,
         default:0
     },
+    priceRange:{
+        type: String,
+        default: 'N/A'
+    }
+    ,
+    availablePrices:[
+        Number
+    ]
+    ,
     category:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category',

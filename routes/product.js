@@ -41,7 +41,9 @@ router.get(`/`, async (req, res) => {
     if (!productList) {
         res.status(500).json({ success: false });
     }
+    console.log(res);
     res.send(productList);
+    
 });
 
 router.get(`/:id`, async (req, res) => {
@@ -68,6 +70,8 @@ router.post(`/`, uploadOptions.single('image'), async (req, res) => {
         detailedDescription: req.body.detailedDescription,
         image: `${basePath}${fileName}`,
         price: req.body.price,
+        priceRange: req.body.priceRange,
+        availablePrices: req.body.availablePrices,
         category: req.body.category,
         countInStock: req.body.countInStock,
         rating: req.body.rating,
@@ -111,6 +115,7 @@ router.put('/:id', uploadOptions.single('image'), async (req, res) => {
             detailedDescription: req.body.detailedDescription,
             image: imagepath,
             price: req.body.price,
+            priceRange: req.body.priceRange,
             category: req.body.category,
             countInStock: req.body.countInStock,
             rating: req.body.rating,

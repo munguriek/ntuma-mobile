@@ -9,6 +9,9 @@ const assistantSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    gender:{
+        type:String
+    },
     email: {
         type: String,
         required: true,
@@ -24,7 +27,7 @@ const assistantSchema = new mongoose.Schema({
     
     isAssistant: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     address: {
         type: String,
@@ -33,6 +36,13 @@ const assistantSchema = new mongoose.Schema({
     market: {
         type: String,
         default: ''
+    },
+    profilePic:{
+        type: String,
+        default:''
+    },
+    refNumber:{
+        type:String,
     }
 
 });
